@@ -1,5 +1,6 @@
-const Maybe = mrequire("core:Data.Native.Maybe:1.0.0");
+const Maybe = mrequire("core:Data.Native.Maybe:1.3.0");
 
+//- The native string operations rewritten as functions.
 
 //= at :: Int -> String -> Maybe String
 const at = i => s =>
@@ -24,7 +25,6 @@ assumptionEqual(indexOfFrom("hello")(2)("hello"), Maybe.Nothing);
 assumptionEqual(indexOfFrom("ll")(2)("hello"), Maybe.Just(2));
 
 
-
 //= indexOf :: String -> String -> Maybe Int
 const indexOf = pattern => s =>  {
     const index = s.indexOf(pattern);
@@ -36,7 +36,6 @@ const indexOf = pattern => s =>  {
 assumptionEqual(indexOf("world")("hello"), Maybe.Nothing);
 assumptionEqual(indexOf("hello")("hello"), Maybe.Just(0));
 assumptionEqual(indexOf("ll")("hello"), Maybe.Just(2));
-
 
 
 //= length :: String -> Int

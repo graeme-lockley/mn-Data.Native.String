@@ -6,6 +6,7 @@
 at :: Int -> String -> Maybe String
 ```
 
+The native string operations rewritten as functions.
 
 ```haskell
 at(0)("Hello") == Maybe.Just("H")
@@ -120,4 +121,4 @@ trim :: String -> String
 
 ## Dependencies
 
-* [Data.Native.Maybe (1.0.0)](https://github.com/graeme-lockley/mn-Data.Native.Maybe)
+* [Data.Native.Maybe (1.3.0)](https://github.com/graeme-lockley/mn-Data.Native.Maybe)

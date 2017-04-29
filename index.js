@@ -28,7 +28,7 @@ assumptionEqual(indexOfFrom("ll")(2)("hello"), Maybe.Just(2));
 
 
 //= indexOf :: String -> String -> Maybe Int
-const indexOf = pattern => s =>  {
+const indexOf = pattern => s => {
     const index = s.indexOf(pattern);
 
     return index === -1
@@ -99,8 +99,23 @@ assumptionEqual(replaceAll("l")("L")("hello"), "heLLo");
 assumptionEqual(replaceAll("*")("=")("he**o"), "he==o");
 
 
+//- Reduce a string from the left.
+//= foldl :: a -> (a -> String -> a) -> a
+const foldl = z => f => s => {
+    let result = z;
+    for (let i = 0; i < s.length; i += 1) {
+        result = f(result)(s[i]);
+    }
+
+    return result;
+};
+assumptionEqual(foldl(0)(a => b => a + 1)(""), 0);
+assumptionEqual(foldl(0)(a => b => a + 1)("Hello"), 5);
+
+
 module.exports = {
     at,
+    foldl,
     indexOf,
     indexOfFrom,
     length,

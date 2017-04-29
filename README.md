@@ -118,6 +118,38 @@ trim :: String -> String
 
 
 
+### replace
+
+```haskell
+replace :: String -> String -> String
+```
+
+Replaces the first occurrence of the first argument with the second argument.
+
+```haskell
+replace("l")("L")("hello") == "heLlo"
+```
+```haskell
+replace("*")("=")("he**o") == "he=*o"
+```
+
+
+### replaceAll
+
+```haskell
+replaceAll :: String -> String -> String
+```
+
+Replaces all occurrence of the first argument with the second argument.
+
+```haskell
+replaceAll("l")("L")("hello") == "heLLo"
+```
+```haskell
+replaceAll("*")("=")("he**o") == "he==o"
+```
+
+
 
 ## Dependencies
 

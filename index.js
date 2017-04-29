@@ -77,12 +77,34 @@ const trim = s =>
     s.trim();
 
 
+//- Replaces the first occurrence of the first argument with the second argument.
+//= replace :: String -> String -> String
+const replace = pattern => replacement => s =>
+    s.replace(pattern, replacement);
+assumptionEqual(replace("l")("L")("hello"), "heLlo");
+assumptionEqual(replace("*")("=")("he**o"), "he=*o");
+
+
+//- Replaces all occurrence of the first argument with the second argument.
+//= replaceAll :: String -> String -> String
+const replaceAll = pattern => replacement => s => {
+    const quoteRegExp = str =>
+        str.replace(/[.?*+^$[\]\\(){}|-]/g, "\\$&");
+
+    return s.replace(new RegExp(quoteRegExp(pattern), "g"), replacement);
+};
+assumptionEqual(replaceAll("l")("L")("hello"), "heLLo");
+assumptionEqual(replaceAll("*")("=")("he**o"), "he==o");
+
+
 module.exports = {
     at,
     indexOf,
     indexOfFrom,
     length,
     match,
+    replace,
+    replaceAll,
     split,
     startsWith,
     substring,

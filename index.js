@@ -1,6 +1,8 @@
+//- The native string operations rewritten as functions.
+
+
 const Maybe = mrequire("core:Data.Native.Maybe:1.3.0");
 
-//- The native string operations rewritten as functions.
 
 //= at :: Int -> String -> Maybe String
 const at = i => s =>

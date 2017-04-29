@@ -125,6 +125,22 @@ replaceAll("l")("L")("hello") == "heLLo"
 replaceAll("*")("=")("he**o") == "he==o"
 ```
 
+### foldl
+
+```haskell
+foldl :: a -> (a -> String -> a) -> a
+```
+
+Reduce a string from the left.
+
+#### Examples:
+
+```haskell
+foldl(0)(acc => _ => acc + 1)("") == 0
+foldl(0)(acc => _ => acc + 1)("Hello") == 5
+foldl("")(acc => item => item + acc)("Hello") == "olleH"
+```
+
 
 ## Dependencies
 

@@ -109,8 +109,9 @@ const foldl = z => f => s => {
 
     return result;
 };
-assumptionEqual(foldl(0)(a => b => a + 1)(""), 0);
-assumptionEqual(foldl(0)(a => b => a + 1)("Hello"), 5);
+assumptionEqual(foldl(0)(acc => _ => acc + 1)(""), 0);
+assumptionEqual(foldl(0)(acc => _ => acc + 1)("Hello"), 5);
+assumptionEqual(foldl("")(acc => item => item + acc)("Hello"), "olleH");
 
 
 module.exports = {

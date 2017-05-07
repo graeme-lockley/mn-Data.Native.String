@@ -114,12 +114,27 @@ assumptionEqual(foldl(0)(acc => _ => acc + 1)("Hello"), 5);
 assumptionEqual(foldl("")(acc => item => item + acc)("Hello"), "olleH");
 
 
+//- Converts the string to all lowercase letters.
+//= lowerCase :: String -> String
+const lowerCase = s =>
+    s.toLowerCase();
+assumptionEqual(lowerCase("Hello World"), "hello world");
+
+
+//- Converts the string to all uppercase letters.
+//= upperCase :: String -> String
+const upperCase = s =>
+    s.toUpperCase();
+assumptionEqual(upperCase("Hello World"), "HELLO WORLD");
+
+
 module.exports = {
     at,
     foldl,
     indexOf,
     indexOfFrom,
     length,
+    lowerCase,
     match,
     replace,
     replaceAll,
@@ -127,5 +142,6 @@ module.exports = {
     startsWith,
     substring,
     substringFrom,
-    trim
+    trim,
+    upperCase
 };
